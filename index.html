@@ -1,196 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>For Monu ❤️</title>
+    <meta charset="UTF-8">
+    <title>For Monu 💗</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background: #ffe6f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: "Poppins", sans-serif;
-        text-align: center;
-        background: linear-gradient(135deg, #ffb6da, #ffd6e9, #ffe6f5);
-        overflow: hidden;
-    }
+        .card {
+            background: white;
+            width: 90%;
+            max-width: 420px;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(255, 0, 102, 0.2);
+            text-align: center;
+            animation: fadeIn 1s;
+            position: relative;
+        }
 
-    h1, h2, h3 {
-        color: #d6006f;
-    }
+        h1, h2, h3 { color: #ff0066; margin-bottom: 10px; }
 
-    .fade {
-        animation: fadeIn 1.3s ease forwards;
-    }
+        button {
+            padding: 14px 24px;
+            border-radius: 50px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+            background-color: #ff4da6;
+            color: white;
+            transition: 0.3s;
+            font-weight: bold;
+        }
 
-    @keyframes fadeIn {
-        from {opacity: 0; transform: scale(0.9);}
-        to {opacity: 1; transform: scale(1);}
-    }
+        button:hover { transform: scale(1.08); }
 
-    button {
-        padding: 14px 28px;
-        font-size: 20px;
-        margin: 20px;
-        border-radius: 15px;
-        border: none;
-        cursor: pointer;
-        background: #ff2f92;
-        color: white;
-        transition: 0.3s;
-    }
+        #noBtn { 
+            position: absolute; 
+            background-color: #999;
+        }
 
-    button:hover {
-        transform: scale(1.1);
-        background: #ff5fb1;
-    }
+        @keyframes fadeIn { 
+            from { opacity:0; transform:translateY(20px); } 
+            to { opacity:1; transform:translateY(0); } 
+        }
 
-    #noBtn {
-        position: absolute;
-        background: #737373;
-    }
+        .heartRain {
+            position: fixed;
+            top: -10px;
+            animation: fall 3s linear infinite;
+            color: #ff3385;
+            font-size: 22px;
+            pointer-events: none;
+            z-index: 999;
+        }
 
-    /* Heart cursor */
-    body {
-        cursor: url('https://cur.cursors-4u.net/love/lov-1/lov106.cur'), auto;
-    }
+        @keyframes fall { 
+            to { transform: translateY(100vh); opacity: 0; } 
+        }
 
-    /* Sparkle follow effect */
-    .sparkle {
-        position: fixed;
-        width: 8px;
-        height: 8px;
-        background: pink;
-        border-radius: 50%;
-        pointer-events: none;
-        animation: sparkleAnim 0.7s linear forwards;
-    }
+        .sparkleText {
+            margin-top: 20px;
+            font-size: 22px;
+            color: #ff1a75;
+            animation: glow 1.3s infinite alternate;
+            font-weight: bold;
+        }
 
-    @keyframes sparkleAnim {
-        from {opacity: 1; transform: scale(1);}
-        to {opacity: 0; transform: scale(2);}
-    }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff80bf; }
+            to   { text-shadow: 0 0 25px #ff1a75; }
+        }
 
-    /* Floating hearts & roses */
-    .float {
-        position: fixed;
-        bottom: -10px;
-        font-size: 30px;
-        animation: floatUp 5s linear infinite;
-    }
-
-    @keyframes floatUp {
-        0% {transform: translateY(0); opacity: 1;}
-        100% {transform: translateY(-900px); opacity: 0;}
-    }
-
-    /* Typewriter effect */
-    .typewriter {
-        overflow: hidden;
-        border-right: 3px solid #ff0a7a;
-        white-space: nowrap;
-        margin: 0 auto;
-        animation: typing 3.5s steps(40, end), blink .6s infinite;
-        font-size: 1.6rem;
-        width: 80%;
-    }
-
-    @keyframes typing {
-        from {width: 0;}
-        to {width: 80%;}
-    }
-
-    @keyframes blink {
-        50% {border-color: transparent;}
-    }
-
-    /* Final I love you effect */
-    .sparkleText {
-        font-size: 2.5rem;
-        color: #ff007b;
-        animation: glow 1.5s infinite alternate;
-        margin-top: 20px;
-    }
-
-    @keyframes glow {
-        from {text-shadow: 0 0 10px #ff8acb;}
-        to {text-shadow: 0 0 25px #ff008c;}
-    }
-</style>
+        #videoContainer iframe {
+            width: 100%;
+            height: 220px;
+            border-radius: 15px;
+            border: 3px solid #ff99cc;
+        }
+    </style>
 </head>
-
 <body>
 
 <!-- PAGE 1 -->
-<div id="page1" class="fade">
-    <h1>Hey Monu ❤️</h1>
-    <h2>I am your Valentine's, right?</h2>
-
-    <button id="yesBtn">Yes</button>
-    <button id="noBtn">No</button>
+<div id="page1" class="card">
+    <h1>Hey Monu 💗</h1>
+    <h2>I am your Valentine, right? 😘💞</h2>
+    <button onclick="yesClicked()">Yes 💖</button>
+    <button id="noBtn" onmouseover="moveNo()" ontouchstart="moveNo()">No 😢</button>
 </div>
 
 <!-- PAGE 2 -->
-<div id="page2" style="display:none;" class="fade">
-    <h1 class="typewriter">Horeee! Yes, I am accepting you ❤️✨</h1>
-    <button id="surpriseBtn">Click here for the surprise</button>
+<div id="page2" class="card" style="display:none;">
+    <h1>Horeeeee! 🎉💗</h1>
+    <h2>YESSS! I'm accepting you, Monu baby 😘</h2>
+    <button onclick="showPage3()">Click for your surprise 🎁</button>
 </div>
 
-<!-- PAGE 3 -->
-<div id="page3" style="display:none;" class="fade">
-    <h1>💗 Your Surprise, Monu 💗</h1>
-    <h3>Let this song speak what my heart feels… ✨</h3>
+<!-- PAGE 3 - YOUTUBE VERSION -->
+<div id="page3" class="card" style="display:none;">
+    <h1>💗 For You, Monu 💗</h1>
+    <h3>This song is my heart talking... ✨</h3>
 
-    <audio id="song" src="song.mp3" autoplay></audio>
+    <button onclick="playVideo()" style="background:#ff1a66; font-size:20px;">
+        🎵 PLAY OUR SONG 🎵
+    </button>
+    
+    <div id="videoContainer" style="margin-top:20px; display:none;">
+        <iframe id="ytPlayer" width="100%" height="250" 
+            src="" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
 
-    <div class="sparkleText">I love you, Monu ❤️</div>
+    <div class="sparkleText">I love you, Monu! Forever 💗</div>
 </div>
 
 <script>
-// Runaway No button
-let noBtn = document.getElementById("noBtn");
-noBtn.addEventListener("mouseover", () => {
-    let x = Math.random() * (window.innerWidth - 100);
-    let y = Math.random() * (window.innerHeight - 100);
+function yesClicked() {
+    document.getElementById("page1").style.display="none";
+    document.getElementById("page2").style.display="block";
+    createHearts();
+}
+
+function showPage3() {
+    document.getElementById("page2").style.display="none";
+    document.getElementById("page3").style.display="block";
+    createHearts();
+}
+
+function moveNo() {
+    const noBtn = document.getElementById("noBtn");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
     noBtn.style.left = x + "px";
     noBtn.style.top = y + "px";
-});
+}
 
-// YES button → Page 2
-document.getElementById("yesBtn").onclick = () => {
-    page1.style.display = "none";
-    page2.style.display = "block";
-};
+function createHearts() {
+    for(let i = 0; i < 15; i++) {
+        setTimeout(() => {
+            let heart = document.createElement("div");
+            heart.className = "heartRain";
+            heart.innerHTML = "💗";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 4000);
+        }, i * 100);
+    }
+}
 
-// Surprise → Page 3 + hearts + roses
-document.getElementById("surpriseBtn").onclick = () => {
-    page2.style.display = "none";
-    page3.style.display = "block";
-
-    document.getElementById("song").play();
-
-    // Floating emojis (hearts + roses)
-    setInterval(() => {
-        let items = ["💖", "❤️", "🌹", "💗"];
-        let float = document.createElement("div");
-        float.className = "float";
-        float.innerHTML = items[Math.floor(Math.random() * items.length)];
-        float.style.left = Math.random() * window.innerWidth + "px";
-        document.body.appendChild(float);
-
-        setTimeout(() => float.remove(), 5000);
-    }, 300);
-};
-
-// Sparkle follow cursor
-document.addEventListener("mousemove", (e) => {
-    let s = document.createElement("div");
-    s.className = "sparkle";
-    s.style.left = e.pageX + "px";
-    s.style.top = e.pageY + "px";
-    document.body.appendChild(s);
-
-    setTimeout(() => s.remove(), 600);
-});
+function playVideo() {
+    document.getElementById("videoContainer").style.display = "block";
+    document.getElementById("ytPlayer").src = "https://www.youtube.com/embed/hfsFOP3TYVQ?autoplay=1";
+}
 </script>
 
 </body>
